@@ -1,0 +1,68 @@
+import { TeamMember } from '@/types';
+
+export const teamMembers: TeamMember[] = [
+  {
+    id: 'emmanuel-adindaa',
+    name: 'Emmanuel Adindaa',
+    role: 'Chief Executive Officer',
+    bio: 'Emmanuel oversees the day-to-day operations, ensuring our recycling programs run efficiently and effectively.',
+    image: '/images/team/Emmanuel Adindaa.jpg',
+    order: 1,
+  },
+  {
+    id: 'ruth-adindaa',
+    name: 'Ruth Adindaa',
+    role: 'Finance & Admin',
+    bio: 'Ruth manages our financial operations and ensures organizational sustainability. a passionate environmental advocate dedicated to creating sustainable waste management solutions across Africa.',
+    image: '/images/team/RUTH ADINDAA.jpg',
+    order: 2,
+  },
+  {
+    id: 'daniel-henaku',
+    name: 'Daniel Henaku',
+    role: 'Head, Waste Management',
+    bio: 'Daniel ',
+    image: '/images/team/Daniel Henaku.jpg',
+    order: 3,
+  },
+  {
+    id: 'catherine-boasiko',
+    name: 'Catherine Boasiko',
+    role: 'Community Engagement & Education',
+    bio: 'Catherine builds relationships with communities and coordinates our grassroots environmental education programs.',
+    image: '/images/team/Catherine Boasiko.jpg',
+    order: 4,
+  },
+  {
+    id: 'jason-ahiable',
+    name: 'Jason Ahiable',
+    role: 'Brand Management & Marketing',
+    bio: 'Jason manages our communications strategy and raises awareness about plastic recycling initiatives.',
+    image: '/images/team/Jason Ahiable.jpg',
+    order: 5,
+  },
+  {
+    id: 'nana-yeboah',
+    name: 'Nana Yeboah',
+    role: 'Technology & Innovation',
+    bio: 'Nana brings technical expertise to our recycling processes and innovation initiatives.',
+    image: '/images/team/Nana Yeboah.jpg',
+    order: 6,
+  },
+  {
+    id: 'olivia-kwartemaa',
+    name: 'Olivia Kwartemaa',
+    role: 'Operations & Logistics',
+    bio: 'Olivia leads our community engagement programs and develops partnerships with local organizations..',
+    image: '/images/team/Olivia Kwartemaa.jpg',
+    order: 7,
+  },
+  {
+    id: 'suzetta-brocke',
+    name: 'Suzetta Brocke',
+    role: 'Business Development',
+    bio: 'Suzetta develops strategic partnerships and collaborations to expand our impact across Ghana.',
+    image: '/images/team/Suzetta Brocke.jpg',
+    order: 8,
+  },
+];
