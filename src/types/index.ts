@@ -69,8 +69,10 @@ export interface CoreValue {
 export interface SocialLinks {
   whatsapp?: string;
   instagram?: string;
-  twitter?: string;
+  X?: string;
   linkedin?: string;
   facebook?: string;
+  tiktok?: string;
+  youtube?: string;
   email?: string;
 }

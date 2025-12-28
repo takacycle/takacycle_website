@@ -26,9 +26,11 @@ export const footerNavigation = {
 export const socialLinks: SocialLinks = {
   whatsapp: 'https://chat.whatsapp.com/D5DpkL03DpE20YEqtrYT3U',
   instagram: 'https://www.instagram.com/takacycleinnovationsgh?igsh=MTYyYTVnZzAwajUyeQ==', // To be provided
-  twitter: '#', // To be provided
-  linkedin: '#', // To be provided
-  facebook: '#', // To be provided
+  X: 'https://tr.ee/0jL5zzPUUd', // To be provided
+  linkedin: 'https://tr.ee/CJH4SlskKt', // To be provided
+  facebook: 'https://tr.ee/e9t6DEh6D3', // To be provided
+  tiktok:'https://tr.ee/58eEGSBtkt',
+  youtube:'https://tr.ee/bXWQldWidw',
   email: 'takacycleinnovations@gmail.com',
 };
 
