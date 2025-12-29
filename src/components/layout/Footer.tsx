@@ -136,7 +136,7 @@ export function Footer() {
                 </li>
                 <li style={{ marginBottom: '12px' }}>
                   <a
-                    href={socialLinks.twitter || '#'}
+                    href={socialLinks.X || '#'}
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ color: '#C8E6C9', fontSize: '15px', textDecoration: 'none' }}
