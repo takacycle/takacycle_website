@@ -112,6 +112,7 @@ export const siteSettingsQuery = groq`
   *[_type == "siteSettings"][0] {
     siteName,
     tagline,
+    taglineAccent,
     email,
     phone,
     address,

@@ -13,8 +13,15 @@ export const siteSettings = defineType({
     }),
     defineField({
       name: 'tagline',
-      title: 'Tagline',
+      title: 'Tagline (Primary)',
       type: 'string',
+      description: 'First part of tagline - displayed in black',
+    }),
+    defineField({
+      name: 'taglineAccent',
+      title: 'Tagline (Accent)',
+      type: 'string',
+      description: 'Second part of tagline - displayed in green',
     }),
     defineField({
       name: 'email',
