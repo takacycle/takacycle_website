@@ -22,7 +22,7 @@ export function Header() {
               alt="TakaCycle Innovations"
               width={220}
               height={70}
-              style={{ height: '150px', width: 'auto' }}
+              style={{ height: '220px', width: 'auto' }}
               priority
             />
           </Link>
