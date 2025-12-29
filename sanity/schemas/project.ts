@@ -38,6 +38,18 @@ export const project = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'gallery',
+      title: 'Image Gallery',
+      type: 'array',
+      of: [
+        {
+          type: 'image',
+          options: { hotspot: true },
+        },
+      ],
+      description: 'Additional images for slideshow (optional)',
+    }),
+    defineField({
       name: 'location',
       title: 'Location',
       type: 'string',
