@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import { Container } from '@/components/layout/Container';
-import { client } from '../../../../sanity/lib/client';
+import { client, urlFor } from '../../../../sanity/lib/client';
 import { siteSettingsQuery } from '../../../../sanity/lib/queries';
 
 export const metadata: Metadata = {
@@ -35,6 +35,19 @@ export default async function OurStoryPage() {
     { value: '100+', label: 'People Trained' },
     { value: '5+', label: 'Partner Organizations' },
   ];
+
+  const storyImageUrl = siteSettings?.storyImage
+    ? urlFor(siteSettings.storyImage).width(1000).height(1250).url()
+    : 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=1000&auto=format&fit=crop';
+
+  const missionImageUrl = siteSettings?.missionImage
+    ? urlFor(siteSettings.missionImage).width(800).height(600).url()
+    : '/images/ourmission.png';
+
+  const visionImageUrl = siteSettings?.visionImage
+    ? urlFor(siteSettings.visionImage).width(1000).height(562).url()
+    : 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1000&auto=format&fit=crop';
+
   return (
     <>
       {/* Hero Section */}
@@ -84,7 +97,7 @@ export default async function OurStoryPage() {
             <div style={{ position: 'relative' }}>
               <div style={{ position: 'relative', aspectRatio: '4/5', borderRadius: '24px', overflow: 'hidden' }}>
                 <Image
-                  src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=1000&auto=format&fit=crop"
+                  src={storyImageUrl}
                   alt="Recycling in action"
                   fill
                   style={{ objectFit: 'cover' }}
@@ -110,7 +123,7 @@ export default async function OurStoryPage() {
             <div style={{ position: 'relative' }}>
               <div style={{ position: 'relative', aspectRatio: '4/3', borderRadius: '24px', overflow: 'hidden' }}>
                 <Image
-                  src="/images/ourmission.png"
+                  src={missionImageUrl}
                   alt="Our Mission - Woman smiling with sustainable products"
                   fill
                   style={{ objectFit: 'cover', objectPosition: 'right center' }}
@@ -128,7 +141,7 @@ export default async function OurStoryPage() {
             <div style={{ position: 'relative' }}>
               <div style={{ position: 'relative', aspectRatio: '16/9', borderRadius: '24px', overflow: 'hidden' }}>
                 <Image
-                  src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1000&auto=format&fit=crop"
+                  src={visionImageUrl}
                   alt="Sustainable future"
                   fill
                   style={{ objectFit: 'cover' }}

@@ -117,8 +117,13 @@ export const siteSettingsQuery = groq`
     phone,
     address,
     socialLinks,
+    donationLink,
     missionStatement,
     visionStatement,
-    impactStats
+    impactStats,
+    heroImage,
+    storyImage,
+    missionImage,
+    visionImage
   }
 `;
