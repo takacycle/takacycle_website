@@ -52,6 +52,12 @@ export const siteSettings = defineType({
       ],
     }),
     defineField({
+      name: 'donationLink',
+      title: 'Donation Link',
+      type: 'url',
+      description: 'Link to donation page (e.g., GoFundMe) - used on Support Us page',
+    }),
+    defineField({
       name: 'missionStatement',
       title: 'Mission Statement',
       type: 'text',
@@ -76,6 +82,34 @@ export const siteSettings = defineType({
           ],
         },
       ],
+    }),
+    defineField({
+      name: 'heroImage',
+      title: 'Homepage Hero Image',
+      type: 'image',
+      options: { hotspot: true },
+      description: 'Main image displayed on the homepage hero section',
+    }),
+    defineField({
+      name: 'storyImage',
+      title: 'Our Story Hero Image',
+      type: 'image',
+      options: { hotspot: true },
+      description: 'Image displayed at the top of the Our Story page',
+    }),
+    defineField({
+      name: 'missionImage',
+      title: 'Mission Section Image',
+      type: 'image',
+      options: { hotspot: true },
+      description: 'Image displayed next to the mission statement',
+    }),
+    defineField({
+      name: 'visionImage',
+      title: 'Vision Section Image',
+      type: 'image',
+      options: { hotspot: true },
+      description: 'Image displayed next to the vision statement',
     }),
   ],
   preview: {

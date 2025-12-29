@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import { Heart, Users, Handshake, Mail, MessageCircle } from 'lucide-react';
 import { Container } from '@/components/layout/Container';
-import { socialLinks } from '@/data/navigation';
+import { client } from '../../../../sanity/lib/client';
+import { siteSettingsQuery } from '../../../../sanity/lib/queries';
 
 export const metadata: Metadata = {
   title: 'Support Us',
@@ -9,34 +10,43 @@ export const metadata: Metadata = {
     'Support TakaCycle Innovations in our mission to transform waste management in Africa. Donate, volunteer, or partner with us.',
 };
 
-const supportOptions = [
-  {
-    icon: Heart,
-    title: 'Donate',
-    description:
-      'Your financial contribution helps us expand our recycling programs, educate communities, and create lasting environmental impact.',
-    cta: 'Make a Donation',
-    href: 'mailto:takacycleinnovations@gmail.com?subject=Donation Inquiry',
-  },
-  {
-    icon: Users,
-    title: 'Volunteer',
-    description:
-      'Join our team of dedicated volunteers. Whether you can spare a few hours or commit regularly, your time makes a difference.',
-    cta: 'Become a Volunteer',
-    href: 'mailto:takacycleinnovations@gmail.com?subject=Volunteer Application',
-  },
-  {
-    icon: Handshake,
-    title: 'Partner',
-    description:
-      'Organizations can partner with us on projects, provide resources, or collaborate on sustainability initiatives.',
-    cta: 'Explore Partnership',
-    href: 'mailto:takacycleinnovations@gmail.com?subject=Partnership Inquiry',
-  },
-];
+async function getSiteSettings() {
+  return client.fetch(siteSettingsQuery);
+}
 
-export default function SupportUsPage() {
+export default async function SupportUsPage() {
+  const siteSettings = await getSiteSettings();
+
+  const donationLink = siteSettings?.donationLink || 'mailto:takacycleinnovations@gmail.com?subject=Donation Inquiry';
+  const whatsappLink = siteSettings?.socialLinks?.whatsapp || '#';
+  const email = siteSettings?.email || 'takacycleinnovations@gmail.com';
+
+  const supportOptions = [
+    {
+      icon: Heart,
+      title: 'Donate',
+      description:
+        'Your financial contribution helps us expand our recycling programs, educate communities, and create lasting environmental impact.',
+      cta: 'Make a Donation',
+      href: donationLink,
+    },
+    {
+      icon: Users,
+      title: 'Volunteer',
+      description:
+        'Join our team of dedicated volunteers. Whether you can spare a few hours or commit regularly, your time makes a difference.',
+      cta: 'Become a Volunteer',
+      href: `mailto:${email}?subject=Volunteer Application`,
+    },
+    {
+      icon: Handshake,
+      title: 'Partner',
+      description:
+        'Organizations can partner with us on projects, provide resources, or collaborate on sustainability initiatives.',
+      cta: 'Explore Partnership',
+      href: `mailto:${email}?subject=Partnership Inquiry`,
+    },
+  ];
   return (
     <>
       {/* Hero Section */}
@@ -201,7 +211,7 @@ export default function SupportUsPage() {
 
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px' }}>
               <a
-                href="mailto:takacycleinnovations@gmail.com"
+                href={`mailto:${email}`}
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -218,7 +228,7 @@ export default function SupportUsPage() {
                 Email Us
               </a>
               <a
-                href={socialLinks.whatsapp}
+                href={whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{

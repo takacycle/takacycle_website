@@ -2,10 +2,12 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { urlFor } from '../../../sanity/lib/client';
 
 interface SiteSettings {
   tagline?: string;
   taglineAccent?: string;
+  heroImage?: any;
 }
 
 interface HeroProps {
@@ -15,6 +17,9 @@ interface HeroProps {
 export function Hero({ siteSettings }: HeroProps) {
   const tagline = siteSettings?.tagline || 'Pioneering Innovative Recycling Solutions';
   const taglineAccent = siteSettings?.taglineAccent || 'for Africa';
+  const heroImageUrl = siteSettings?.heroImage
+    ? urlFor(siteSettings.heroImage).width(1000).height(1250).url()
+    : 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1000&auto=format&fit=crop';
 
   return (
     <section style={{ padding: '80px 0 100px' }}>
@@ -72,7 +77,7 @@ export function Hero({ siteSettings }: HeroProps) {
               boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
             }}>
               <Image
-                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1000&auto=format&fit=crop"
+                src={heroImageUrl}
                 alt="African woman embracing sustainability"
                 fill
                 style={{ objectFit: 'cover' }}
