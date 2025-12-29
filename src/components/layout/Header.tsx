@@ -7,7 +7,11 @@ import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { mainNavigation } from '@/data/navigation';
 
-export function Header() {
+interface HeaderProps {
+  siteName?: string;
+}
+
+export function Header({ siteName = 'TakaCycle Innovations' }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
@@ -19,10 +23,10 @@ export function Header() {
           <Link href="/" style={{ flexShrink: 0 }}>
             <Image
               src="/images/logos/TAKACYCLEPRIMARY-01.png"
-              alt="TakaCycle Innovations"
+              alt={siteName}
               width={220}
               height={70}
-              style={{ height: '220px', width: 'auto' }}
+              style={{ height: '70px', width: 'auto' }}
               priority
             />
           </Link>

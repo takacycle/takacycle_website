@@ -3,7 +3,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-export function Hero() {
+interface SiteSettings {
+  tagline?: string;
+}
+
+interface HeroProps {
+  siteSettings?: SiteSettings;
+}
+
+export function Hero({ siteSettings }: HeroProps) {
+  const tagline = siteSettings?.tagline || 'Pioneering Innovative Recycling Solutions';
+
   return (
     <section style={{ padding: '80px 0 100px' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 40px' }}>
@@ -11,9 +21,7 @@ export function Hero() {
           {/* Text Content */}
           <div>
             <h1 style={{ fontSize: '56px', fontWeight: 700, lineHeight: 1.1, letterSpacing: '-0.02em' }}>
-              <span style={{ color: '#111111' }}>Pioneering Innovative</span>
-              <br />
-              <span style={{ color: '#4CAF50' }}>Recycling Solutions</span>
+              <span style={{ color: '#111111' }}>{tagline}</span>
               <br />
               <span style={{ color: '#4CAF50' }}>for Africa</span>
             </h1>
