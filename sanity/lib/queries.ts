@@ -16,6 +16,25 @@ export const allBlogPostsQuery = groq`
   }
 `;
 
+export const allBlogPostSlugsQuery = groq`
+  *[_type == "blogPost"] {
+    "slug": slug.current
+  }
+`;
+
+export const relatedBlogPostsQuery = groq`
+  *[_type == "blogPost" && category == $category && slug.current != $slug] | order(publishedAt desc)[0...3] {
+    _id,
+    title,
+    "slug": slug.current,
+    excerpt,
+    featuredImage,
+    category,
+    publishedAt,
+    readTime
+  }
+`;
+
 export const blogPostBySlugQuery = groq`
   *[_type == "blogPost" && slug.current == $slug][0] {
     _id,

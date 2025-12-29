@@ -116,7 +116,7 @@ export default async function OurProjectsPage() {
                         borderTop: '1px solid #f3f4f6',
                       }}
                     >
-                      {project.impactMetrics.map((metric) => (
+                      {project.impactMetrics?.map((metric: { label: string; value: string }) => (
                         <div key={metric.label} style={{ textAlign: 'center' }}>
                           <div style={{ fontSize: '20px', fontWeight: 700, color: '#4CAF50' }}>
                             {metric.value}
