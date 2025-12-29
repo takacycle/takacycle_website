@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 interface SiteSettings {
   tagline?: string;
+  taglineAccent?: string;
 }
 
 interface HeroProps {
@@ -13,6 +14,7 @@ interface HeroProps {
 
 export function Hero({ siteSettings }: HeroProps) {
   const tagline = siteSettings?.tagline || 'Pioneering Innovative Recycling Solutions';
+  const taglineAccent = siteSettings?.taglineAccent || 'for Africa';
 
   return (
     <section style={{ padding: '80px 0 100px' }}>
@@ -22,8 +24,12 @@ export function Hero({ siteSettings }: HeroProps) {
           <div>
             <h1 style={{ fontSize: '56px', fontWeight: 700, lineHeight: 1.1, letterSpacing: '-0.02em' }}>
               <span style={{ color: '#111111' }}>{tagline}</span>
-              <br />
-              <span style={{ color: '#4CAF50' }}>for Africa</span>
+              {taglineAccent && (
+                <>
+                  <br />
+                  <span style={{ color: '#4CAF50' }}>{taglineAccent}</span>
+                </>
+              )}
             </h1>
             <p style={{
               marginTop: '32px',
