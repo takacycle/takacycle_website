@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import { MapPin } from 'lucide-react';
 import { Container } from '@/components/layout/Container';
+import { ImageSlideshow } from '@/components/shared/ImageSlideshow';
 import { client, urlFor } from '../../../../sanity/lib/client';
 import { allProjectsQuery } from '../../../../sanity/lib/queries';
 
@@ -47,7 +48,13 @@ export default async function OurProjectsPage() {
         <Container>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '32px' }}>
             {projects.map((project: any) => {
-              const imageUrl = project.featuredImage
+              // Combine featured image with gallery images for slideshow
+              const allImages = [
+                project.featuredImage,
+                ...(project.gallery || []),
+              ].filter(Boolean);
+
+              const singleImageUrl = project.featuredImage
                 ? urlFor(project.featuredImage).width(800).height(512).url()
                 : '/images/placeholder-project.jpg';
 
@@ -62,13 +69,17 @@ export default async function OurProjectsPage() {
                 }}
               >
                 <div style={{ position: 'relative', height: '256px' }}>
-                  <Image
-                    src={imageUrl}
-                    alt={project.title}
-                    fill
-                    style={{ objectFit: 'cover' }}
-                  />
-                  <div style={{ position: 'absolute', top: '16px', right: '16px' }}>
+                  {allImages.length > 1 ? (
+                    <ImageSlideshow images={allImages} alt={project.title} interval={4000} />
+                  ) : (
+                    <Image
+                      src={singleImageUrl}
+                      alt={project.title}
+                      fill
+                      style={{ objectFit: 'cover' }}
+                    />
+                  )}
+                  <div style={{ position: 'absolute', top: '16px', right: '16px', zIndex: 10 }}>
                     <span
                       style={{
                         padding: '4px 12px',
@@ -76,8 +87,8 @@ export default async function OurProjectsPage() {
                         fontSize: '14px',
                         fontWeight: 500,
                         textTransform: 'capitalize',
-                        backgroundColor: statusColors[project.status].bg,
-                        color: statusColors[project.status].text,
+                        backgroundColor: statusColors[project.status]?.bg || '#f5f5f5',
+                        color: statusColors[project.status]?.text || '#666666',
                       }}
                     >
                       {project.status}

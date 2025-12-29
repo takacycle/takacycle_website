@@ -64,14 +64,22 @@ export const allTeamMembersQuery = groq`
   }
 `;
 
-// Projects
+// Projects - sorted by status: ongoing first, then planned, then completed
 export const allProjectsQuery = groq`
-  *[_type == "project"] | order(startDate desc) {
+  *[_type == "project"] | order(
+    select(
+      status == "ongoing" => 0,
+      status == "planned" => 1,
+      status == "completed" => 2
+    ),
+    startDate desc
+  ) {
     _id,
     title,
     "slug": slug.current,
     description,
     featuredImage,
+    gallery,
     location,
     status,
     startDate,
