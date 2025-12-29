@@ -1,13 +1,26 @@
 'use client';
 
 import Image from 'next/image';
-import { TeamMember } from '@/types';
+import { urlFor } from '../../../sanity/lib/client';
+
+interface SanityTeamMember {
+  _id: string;
+  name: string;
+  role: string;
+  image?: any;
+  bio: string;
+  order: number;
+}
 
 interface TeamCardProps {
-  member: TeamMember;
+  member: SanityTeamMember;
 }
 
 export function TeamCard({ member }: TeamCardProps) {
+  const imageUrl = member.image
+    ? urlFor(member.image).width(400).height(533).url()
+    : '/images/placeholder-team.jpg';
+
   return (
     <div
       style={{
@@ -20,7 +33,7 @@ export function TeamCard({ member }: TeamCardProps) {
     >
       <div style={{ position: 'relative', aspectRatio: '3/4', overflow: 'hidden' }}>
         <Image
-          src={member.image}
+          src={imageUrl}
           alt={member.name}
           fill
           style={{ objectFit: 'cover' }}

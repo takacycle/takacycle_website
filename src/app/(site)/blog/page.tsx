@@ -3,7 +3,8 @@ import Image from 'next/image';
 import { Container } from '@/components/layout/Container';
 import { BlogCard } from '@/components/blog/BlogCard';
 import { JoinCommunity } from '@/components/shared/JoinCommunity';
-import { blogPosts, blogCategories } from '@/data/blog';
+import { client } from '../../../../sanity/lib/client';
+import { allBlogPostsQuery } from '../../../../sanity/lib/queries';
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -11,7 +12,21 @@ export const metadata: Metadata = {
     'Read the latest news, insights, and articles about recycling, sustainability, and environmental issues from TakaCycle Innovations.',
 };
 
-export default function BlogPage() {
+const blogCategories = [
+  { id: 'all', label: 'All' },
+  { id: 'sustainability', label: 'Sustainability' },
+  { id: 'recycling', label: 'Recycling' },
+  { id: 'community', label: 'Community' },
+  { id: 'innovation', label: 'Innovation' },
+];
+
+async function getBlogPosts() {
+  return client.fetch(allBlogPostsQuery);
+}
+
+export default async function BlogPage() {
+  const blogPosts = await getBlogPosts();
+
   return (
     <>
       {/* Hero Banner */}
@@ -86,8 +101,8 @@ export default function BlogPage() {
       <section style={{ padding: '60px 0' }}>
         <Container>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '32px' }}>
-            {blogPosts.map((post) => (
-              <BlogCard key={post.slug} post={post} />
+            {blogPosts.map((post: any) => (
+              <BlogCard key={post._id} post={post} />
             ))}
           </div>
         </Container>

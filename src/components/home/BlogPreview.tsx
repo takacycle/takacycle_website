@@ -3,35 +3,21 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Lightbulb } from 'lucide-react';
+import { urlFor } from '../../../sanity/lib/client';
 
-const previewPosts = [
-  {
-    slug: 'dangers-of-plastic-waste',
-    title: 'The Dangers of Plastic Waste',
-    excerpt: 'Learn all about the damage of plastic in the ecosystem',
-    image: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=500&auto=format&fit=crop',
-  },
-  {
-    slug: 'recycling-initiatives-ghana',
-    title: 'Recycling Initiatives in Ghana',
-    excerpt: 'How communities are coming together to tackle waste',
-    image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=500&auto=format&fit=crop',
-  },
-  {
-    slug: 'sustainable-living-tips',
-    title: 'Sustainable Living Tips',
-    excerpt: 'Simple changes you can make for a greener lifestyle',
-    image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=500&auto=format&fit=crop',
-  },
-  {
-    slug: 'climate-change-africa',
-    title: 'Climate Change in Africa',
-    excerpt: 'Understanding the impact and what we can do about it',
-    image: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=500&auto=format&fit=crop',
-  },
-];
+interface BlogPost {
+  _id: string;
+  title: string;
+  slug: string;
+  excerpt: string;
+  featuredImage?: any;
+}
 
-export function BlogPreview() {
+interface BlogPreviewProps {
+  posts: BlogPost[];
+}
+
+export function BlogPreview({ posts }: BlogPreviewProps) {
   return (
     <section style={{ padding: '100px 0', backgroundColor: '#F5F5F5' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
@@ -54,8 +40,13 @@ export function BlogPreview() {
           gap: '24px',
           marginBottom: '48px'
         }}>
-          {previewPosts.map((post) => (
-            <Link key={post.slug} href={`/blog/${post.slug}`} style={{ textDecoration: 'none' }}>
+          {posts.slice(0, 4).map((post) => {
+            const imageUrl = post.featuredImage
+              ? urlFor(post.featuredImage).width(500).height(500).url()
+              : '/images/placeholder-blog.jpg';
+
+            return (
+            <Link key={post._id} href={`/blog/${post.slug}`} style={{ textDecoration: 'none' }}>
               <div style={{
                 backgroundColor: '#ffffff',
                 borderRadius: '20px',
@@ -66,7 +57,7 @@ export function BlogPreview() {
               }}>
                 <div style={{ position: 'relative', aspectRatio: '1/1' }}>
                   <Image
-                    src={post.image}
+                    src={imageUrl}
                     alt={post.title}
                     fill
                     style={{ objectFit: 'cover' }}
@@ -88,7 +79,8 @@ export function BlogPreview() {
                 </div>
               </div>
             </Link>
-          ))}
+            );
+          })}
         </div>
 
         <Link

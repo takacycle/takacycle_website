@@ -3,10 +3,21 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Clock } from 'lucide-react';
-import { BlogPost } from '@/types';
+import { urlFor } from '../../../sanity/lib/client';
+
+interface SanityBlogPost {
+  _id: string;
+  title: string;
+  slug: string;
+  excerpt: string;
+  featuredImage?: any;
+  category: string;
+  publishedAt: string;
+  readTime: number;
+}
 
 interface BlogCardProps {
-  post: BlogPost;
+  post: SanityBlogPost;
 }
 
 export function BlogCard({ post }: BlogCardProps) {
@@ -15,6 +26,10 @@ export function BlogCard({ post }: BlogCardProps) {
     month: 'long',
     day: 'numeric',
   });
+
+  const imageUrl = post.featuredImage
+    ? urlFor(post.featuredImage).width(600).height(375).url()
+    : '/images/placeholder-blog.jpg';
 
   return (
     <Link href={`/blog/${post.slug}`} style={{ textDecoration: 'none' }}>
@@ -30,7 +45,7 @@ export function BlogCard({ post }: BlogCardProps) {
       >
         <div style={{ position: 'relative', aspectRatio: '16/10', overflow: 'hidden' }}>
           <Image
-            src={post.featuredImage}
+            src={imageUrl}
             alt={post.title}
             fill
             style={{ objectFit: 'cover' }}

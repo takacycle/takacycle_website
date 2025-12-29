@@ -2,7 +2,8 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import { MapPin } from 'lucide-react';
 import { Container } from '@/components/layout/Container';
-import { projects } from '@/data/projects';
+import { client, urlFor } from '../../../../sanity/lib/client';
+import { allProjectsQuery } from '../../../../sanity/lib/queries';
 
 export const metadata: Metadata = {
   title: 'Our Projects',
@@ -16,7 +17,13 @@ const statusColors: Record<string, { bg: string; text: string }> = {
   planned: { bg: '#FEF3C7', text: '#B45309' },
 };
 
-export default function OurProjectsPage() {
+async function getProjects() {
+  return client.fetch(allProjectsQuery);
+}
+
+export default async function OurProjectsPage() {
+  const projects = await getProjects();
+
   return (
     <>
       {/* Hero Section */}
@@ -39,9 +46,14 @@ export default function OurProjectsPage() {
       <section style={{ padding: '80px 0' }}>
         <Container>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '32px' }}>
-            {projects.map((project) => (
+            {projects.map((project: any) => {
+              const imageUrl = project.featuredImage
+                ? urlFor(project.featuredImage).width(800).height(512).url()
+                : '/images/placeholder-project.jpg';
+
+              return (
               <div
-                key={project.id}
+                key={project._id}
                 style={{
                   backgroundColor: '#ffffff',
                   borderRadius: '16px',
@@ -51,7 +63,7 @@ export default function OurProjectsPage() {
               >
                 <div style={{ position: 'relative', height: '256px' }}>
                   <Image
-                    src={project.featuredImage}
+                    src={imageUrl}
                     alt={project.title}
                     fill
                     style={{ objectFit: 'cover' }}
@@ -118,7 +130,8 @@ export default function OurProjectsPage() {
                   )}
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </Container>
       </section>

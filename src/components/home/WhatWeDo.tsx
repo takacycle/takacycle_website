@@ -1,7 +1,6 @@
 'use client';
 
 import { Recycle, Factory, Sparkles, Leaf, ArrowRight } from 'lucide-react';
-import { services } from '@/data/services';
 
 const iconMap: Record<string, React.ReactNode> = {
   Recycle: <Recycle style={{ height: '36px', width: '36px' }} />,
@@ -10,7 +9,19 @@ const iconMap: Record<string, React.ReactNode> = {
   Leaf: <Leaf style={{ height: '36px', width: '36px' }} />,
 };
 
-export function WhatWeDo() {
+interface Service {
+  _id: string;
+  title: string;
+  description: string;
+  icon: string;
+  order: number;
+}
+
+interface WhatWeDoProps {
+  services: Service[];
+}
+
+export function WhatWeDo({ services }: WhatWeDoProps) {
   return (
     <section style={{ padding: '100px 0', backgroundColor: '#ffffff' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 40px' }}>

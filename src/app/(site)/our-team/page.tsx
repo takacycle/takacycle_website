@@ -3,7 +3,8 @@ import Image from 'next/image';
 import { Container } from '@/components/layout/Container';
 import { TeamCard } from '@/components/team/TeamCard';
 import { JoinCommunity } from '@/components/shared/JoinCommunity';
-import { teamMembers } from '@/data/team';
+import { client } from '../../../../sanity/lib/client';
+import { allTeamMembersQuery } from '../../../../sanity/lib/queries';
 
 export const metadata: Metadata = {
   title: 'Our Team',
@@ -11,8 +12,12 @@ export const metadata: Metadata = {
     'Meet the passionate team behind TakaCycle Innovations - dedicated individuals working to transform waste management in Africa.',
 };
 
-export default function OurTeamPage() {
-  const sortedMembers = [...teamMembers].sort((a, b) => a.order - b.order);
+async function getTeamMembers() {
+  return client.fetch(allTeamMembersQuery);
+}
+
+export default async function OurTeamPage() {
+  const teamMembers = await getTeamMembers();
 
   return (
     <>
@@ -72,8 +77,8 @@ export default function OurTeamPage() {
       <section style={{ paddingBottom: '80px' }}>
         <Container>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '32px' }}>
-            {sortedMembers.map((member) => (
-              <TeamCard key={member.id} member={member} />
+            {teamMembers.map((member: any) => (
+              <TeamCard key={member._id} member={member} />
             ))}
           </div>
         </Container>
