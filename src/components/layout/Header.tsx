@@ -25,8 +25,8 @@ export function Header({ siteName = 'TakaCycle Innovations' }: HeaderProps) {
               src="/images/logos/TAKACYCLEPRIMARY-01.png"
               alt={siteName}
               width={220}
-              height={70}
-              style={{ height: '70px', width: 'auto' }}
+              height={200}
+              style={{ height: '200px', width: 'auto' }}
               priority
             />
           </Link>
