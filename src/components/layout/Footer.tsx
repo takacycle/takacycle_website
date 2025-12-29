@@ -2,10 +2,30 @@
 
 import Link from 'next/link';
 import { Mail, Phone } from 'lucide-react';
-import { footerNavigation, socialLinks, contactInfo } from '@/data/navigation';
+import { footerNavigation } from '@/data/navigation';
 
-export function Footer() {
+interface SiteSettings {
+  siteName?: string;
+  email?: string;
+  phone?: string;
+  socialLinks?: {
+    facebook?: string;
+    instagram?: string;
+    linkedin?: string;
+    twitter?: string;
+    whatsapp?: string;
+  };
+}
+
+interface FooterProps {
+  siteSettings?: SiteSettings;
+}
+
+export function Footer({ siteSettings }: FooterProps) {
   const currentYear = new Date().getFullYear();
+
+  const email = siteSettings?.email || 'takacycleinnovations@gmail.com';
+  const socialLinks = siteSettings?.socialLinks || {};
 
   return (
     <footer style={{ backgroundColor: '#2D5016' }}>
@@ -136,7 +156,7 @@ export function Footer() {
                 </li>
                 <li style={{ marginBottom: '12px' }}>
                   <a
-                    href={socialLinks.X || '#'}
+                    href={socialLinks.twitter || '#'}
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ color: '#C8E6C9', fontSize: '15px', textDecoration: 'none' }}
@@ -146,12 +166,12 @@ export function Footer() {
                 </li>
                 <li style={{ marginBottom: '12px' }}>
                   <a
-                    href="https://youtube.com"
+                    href={socialLinks.facebook || '#'}
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ color: '#C8E6C9', fontSize: '15px', textDecoration: 'none' }}
                   >
-                    YouTube
+                    Facebook
                   </a>
                 </li>
               </ul>
@@ -173,10 +193,10 @@ export function Footer() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
                 <Mail style={{ height: '18px', width: '18px', color: '#C8E6C9' }} />
                 <a
-                  href={`mailto:${contactInfo.email}`}
+                  href={`mailto:${email}`}
                   style={{ color: '#C8E6C9', fontSize: '14px', textDecoration: 'underline' }}
                 >
-                  {contactInfo.email}
+                  {email}
                 </a>
               </div>
 

@@ -9,7 +9,11 @@ export const client = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: process.env.NODE_ENV === 'production',
+  useCdn: false, // Disable CDN to get fresh content
+  // Revalidate content every 60 seconds
+  fetch: {
+    next: { revalidate: 60 },
+  },
 });
 
 const builder = createImageUrlBuilder({ projectId, dataset });

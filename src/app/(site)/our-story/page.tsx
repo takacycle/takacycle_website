@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import { Container } from '@/components/layout/Container';
+import { client } from '../../../../sanity/lib/client';
+import { siteSettingsQuery } from '../../../../sanity/lib/queries';
 
 export const metadata: Metadata = {
   title: 'Our Story',
@@ -14,7 +16,25 @@ const sdgGoals = [
   { number: 15, image: '/images/sdg/sdg15.png', alt: 'SDG 15 - Life on Land' },
 ];
 
-export default function OurStoryPage() {
+async function getSiteSettings() {
+  return client.fetch(siteSettingsQuery);
+}
+
+export default async function OurStoryPage() {
+  const siteSettings = await getSiteSettings();
+
+  const missionStatement = siteSettings?.missionStatement ||
+    'Educating individuals, communities, and stakeholders on recycling plastic waste by providing innovative solutions with passion and excellence, thereby maintaining an eco-friendly space.';
+
+  const visionStatement = siteSettings?.visionStatement ||
+    'We envision an Africa where waste is seen as a resource, not a problem. A continent where circular economy principles drive sustainable development and create opportunities for all.';
+
+  const impactStats = siteSettings?.impactStats || [
+    { value: '50+', label: 'Communities Reached' },
+    { value: '10K+', label: 'Kg Plastic Collected' },
+    { value: '100+', label: 'People Trained' },
+    { value: '5+', label: 'Partner Organizations' },
+  ];
   return (
     <>
       {/* Hero Section */}
@@ -84,9 +104,7 @@ export default function OurStoryPage() {
                 Our Mission
               </h2>
               <p style={{ fontSize: '18px', color: '#666666', lineHeight: 1.8 }}>
-                Educating individuals, communities, and stakeholders on recycling plastic waste
-                by providing innovative solutions with passion and excellence, thereby maintaining
-                an eco-friendly space.
+                {missionStatement}
               </p>
             </div>
             <div style={{ position: 'relative' }}>
@@ -122,16 +140,8 @@ export default function OurStoryPage() {
               <h2 style={{ fontSize: '40px', fontWeight: 700, color: '#111111', marginBottom: '24px' }}>
                 Our Vision
               </h2>
-              <p style={{ fontSize: '18px', color: '#666666', marginBottom: '24px', lineHeight: 1.7 }}>
-                We envision an Africa where waste is seen as a resource, not a
-                problem. A continent where circular economy principles drive
-                sustainable development and create opportunities for all.
-              </p>
               <p style={{ fontSize: '18px', color: '#666666', lineHeight: 1.7 }}>
-                By 2030, we aim to have diverted millions of tons of plastic
-                waste from landfills and oceans, created thousands of green
-                jobs, and established TakaCycle as the leading waste management
-                innovator in West Africa.
+                {visionStatement}
               </p>
             </div>
           </div>
@@ -145,13 +155,8 @@ export default function OurStoryPage() {
             Our Impact
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '32px' }}>
-            {[
-              { value: '50+', label: 'Communities Reached' },
-              { value: '10K+', label: 'Kg Plastic Collected' },
-              { value: '100+', label: 'People Trained' },
-              { value: '5+', label: 'Partner Organizations' },
-            ].map((stat) => (
-              <div key={stat.label} style={{ textAlign: 'center' }}>
+            {impactStats.map((stat: { value: string; label: string; _key?: string }) => (
+              <div key={stat._key || stat.label} style={{ textAlign: 'center' }}>
                 <div style={{ fontSize: '48px', fontWeight: 700, color: '#8CD867', marginBottom: '8px' }}>
                   {stat.value}
                 </div>
