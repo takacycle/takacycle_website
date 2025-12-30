@@ -30,65 +30,35 @@ export default async function BlogPage() {
   return (
     <>
       {/* Hero Banner */}
-      <section style={{ position: 'relative', height: '400px', overflow: 'hidden' }}>
+      <section className="relative h-48 sm:h-64 lg:h-[350px] overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2000&auto=format&fit=crop"
           alt="Green hills landscape"
           fill
-          style={{ objectFit: 'cover' }}
+          className="object-cover"
           priority
         />
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.2))',
-          }}
-        />
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            textAlign: 'center',
-            padding: '0 16px',
-          }}
-        >
-          <p style={{ color: '#8CD867', fontWeight: 500, marginBottom: '8px' }}>TakaBlog</p>
-          <h1
-            style={{
-              fontSize: '48px',
-              fontWeight: 700,
-              color: '#ffffff',
-              maxWidth: '700px',
-              lineHeight: 1.2,
-            }}
-          >
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+          <p className="text-[#8CD867] font-medium text-sm sm:text-base mb-2">TakaBlog</p>
+          <h1 className="text-xl sm:text-2xl lg:text-5xl font-bold text-white max-w-[700px] leading-tight">
             Learn more about climate, the environment, and sustainability
           </h1>
         </div>
       </section>
 
       {/* Category Filter */}
-      <section style={{ padding: '32px 0', borderBottom: '1px solid #e5e5e5' }}>
+      <section className="py-4 sm:py-6 border-b border-gray-200">
         <Container>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+          <div className="flex flex-wrap gap-2">
             {blogCategories.map((category) => (
               <button
                 key={category.id}
-                style={{
-                  padding: '10px 20px',
-                  borderRadius: '50px',
-                  fontSize: '14px',
-                  fontWeight: 500,
-                  border: 'none',
-                  cursor: 'pointer',
-                  backgroundColor: category.id === 'all' ? '#111111' : '#f5f5f5',
-                  color: category.id === 'all' ? '#ffffff' : '#666666',
-                }}
+                className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium border-none cursor-pointer transition-colors ${
+                  category.id === 'all'
+                    ? 'bg-[#111111] text-white'
+                    : 'bg-[#f5f5f5] text-[#666666] hover:bg-gray-200'
+                }`}
               >
                 {category.label}
               </button>
@@ -98,9 +68,9 @@ export default async function BlogPage() {
       </section>
 
       {/* Blog Grid */}
-      <section style={{ padding: '60px 0' }}>
+      <section className="pt-8 pb-10 sm:pt-10 sm:pb-12 lg:pt-14 lg:pb-16">
         <Container>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '32px' }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
             {blogPosts.map((post: any) => (
               <BlogCard key={post._id} post={post} />
             ))}
@@ -109,7 +79,7 @@ export default async function BlogPage() {
       </section>
 
       {/* Join Community CTA */}
-      <section style={{ padding: '80px 0' }}>
+      <section className="pt-8 pb-14 sm:pt-10 sm:pb-16 lg:pt-12 lg:pb-20">
         <Container>
           <JoinCommunity />
         </Container>

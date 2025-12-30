@@ -17,12 +17,8 @@ export function Container({
 
   return (
     <div
-      style={{
-        margin: '0 auto',
-        width: '100%',
-        padding: '0 40px',
-        maxWidth: maxWidths[size],
-      }}
+      className="mx-auto w-full px-4 sm:px-6 lg:px-10"
+      style={{ maxWidth: maxWidths[size] }}
     >
       {children}
     </div>

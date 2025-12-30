@@ -50,19 +50,13 @@ export default async function SupportUsPage() {
   return (
     <>
       {/* Hero Section */}
-      <section
-        style={{
-          padding: '100px 0',
-          background: 'linear-gradient(135deg, #4CAF50 0%, #2D5016 100%)',
-          color: '#ffffff',
-        }}
-      >
+      <section className="pt-12 pb-10 sm:pt-14 sm:pb-12 lg:pt-18 lg:pb-16 bg-gradient-to-br from-[#4CAF50] to-[#2D5016] text-white">
         <Container>
-          <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
-            <h1 style={{ fontSize: '56px', fontWeight: 700, marginBottom: '24px' }}>
+          <div className="max-w-[800px] mx-auto text-center">
+            <h1 className="text-2xl sm:text-3xl lg:text-[48px] font-bold mb-4 sm:mb-5">
               Support Our Mission
             </h1>
-            <p style={{ fontSize: '20px', color: '#E8F5E9', lineHeight: 1.7 }}>
+            <p className="text-sm sm:text-base lg:text-lg text-[#E8F5E9] leading-relaxed">
               Together, we can transform waste management in Africa and create a
               cleaner, more sustainable future for generations to come.
             </p>
@@ -71,54 +65,26 @@ export default async function SupportUsPage() {
       </section>
 
       {/* Support Options */}
-      <section style={{ padding: '80px 0' }}>
+      <section className="pt-10 pb-10 sm:pt-12 sm:pb-12 lg:pt-16 lg:pb-16">
         <Container>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '32px' }}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
             {supportOptions.map((option) => (
               <div
                 key={option.title}
-                style={{
-                  backgroundColor: 'transparent',
-                  border: '2px solid #e5e5e5',
-                  borderRadius: '16px',
-                  padding: '32px',
-                  textAlign: 'center',
-                }}
+                className="bg-transparent border-2 border-gray-200 rounded-2xl p-5 sm:p-6 lg:p-8 text-center"
               >
-                <div
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    width: '64px',
-                    height: '64px',
-                    borderRadius: '50%',
-                    backgroundColor: '#E8F5E9',
-                    color: '#4CAF50',
-                    marginBottom: '24px',
-                  }}
-                >
-                  <option.icon style={{ height: '32px', width: '32px' }} />
+                <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full bg-[#E8F5E9] text-[#4CAF50] mb-4 sm:mb-5">
+                  <option.icon className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8" />
                 </div>
-                <h3 style={{ fontSize: '24px', fontWeight: 700, color: '#111111', marginBottom: '16px' }}>
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-[#111111] mb-3 sm:mb-4">
                   {option.title}
                 </h3>
-                <p style={{ color: '#666666', marginBottom: '24px', lineHeight: 1.6 }}>
+                <p className="text-[#666666] mb-5 sm:mb-6 leading-relaxed text-sm sm:text-base">
                   {option.description}
                 </p>
                 <a
                   href={option.href}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    padding: '14px 28px',
-                    backgroundColor: '#4CAF50',
-                    color: '#ffffff',
-                    fontWeight: 600,
-                    borderRadius: '50px',
-                    textDecoration: 'none',
-                    fontSize: '15px',
-                  }}
+                  className="inline-flex items-center justify-center px-5 sm:px-6 py-3 sm:py-3.5 bg-[#4CAF50] text-white font-semibold rounded-full hover:bg-[#43A047] transition-colors text-sm sm:text-base"
                 >
                   {option.cta}
                 </a>
@@ -129,22 +95,14 @@ export default async function SupportUsPage() {
       </section>
 
       {/* Why Support Us */}
-      <section style={{ padding: '80px 0', backgroundColor: '#FAFAFA' }}>
+      <section className="pt-10 pb-10 sm:pt-12 sm:pb-12 lg:pt-16 lg:pb-16 bg-[#FAFAFA]">
         <Container>
-          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-            <h2
-              style={{
-                fontSize: '40px',
-                fontWeight: 700,
-                color: '#111111',
-                textAlign: 'center',
-                marginBottom: '48px',
-              }}
-            >
+          <div className="max-w-[800px] mx-auto">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#111111] text-center mb-8 sm:mb-10 lg:mb-12">
               Why Your Support Matters
             </h2>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+            <div className="flex flex-col gap-5 sm:gap-6 lg:gap-8">
               {[
                 {
                   title: 'Environmental Impact',
@@ -167,28 +125,15 @@ export default async function SupportUsPage() {
                     'Funding helps us develop new solutions and scale our impact across Ghana and beyond.',
                 },
               ].map((item, index) => (
-                <div key={item.title} style={{ display: 'flex', gap: '16px' }}>
-                  <div
-                    style={{
-                      flexShrink: 0,
-                      width: '32px',
-                      height: '32px',
-                      borderRadius: '50%',
-                      backgroundColor: '#4CAF50',
-                      color: '#ffffff',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontWeight: 700,
-                    }}
-                  >
+                <div key={item.title} className="flex gap-3 sm:gap-4">
+                  <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#4CAF50] text-white flex items-center justify-center font-bold text-xs sm:text-sm">
                     {index + 1}
                   </div>
                   <div>
-                    <h3 style={{ fontSize: '20px', fontWeight: 600, color: '#111111', marginBottom: '8px' }}>
+                    <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-[#111111] mb-1.5 sm:mb-2">
                       {item.title}
                     </h3>
-                    <p style={{ color: '#666666', lineHeight: 1.6 }}>{item.description}</p>
+                    <p className="text-[#666666] leading-relaxed text-sm sm:text-base">{item.description}</p>
                   </div>
                 </div>
               ))}
@@ -198,52 +143,32 @@ export default async function SupportUsPage() {
       </section>
 
       {/* Contact Section */}
-      <section style={{ padding: '80px 0' }}>
+      <section className="pt-10 pb-10 sm:pt-12 sm:pb-12 lg:pt-16 lg:pb-16">
         <Container>
-          <div style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
-            <h2 style={{ fontSize: '40px', fontWeight: 700, color: '#111111', marginBottom: '24px' }}>
+          <div className="max-w-[600px] mx-auto text-center">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#111111] mb-4 sm:mb-5">
               Get in Touch
             </h2>
-            <p style={{ fontSize: '18px', color: '#666666', marginBottom: '32px', lineHeight: 1.6 }}>
+            <p className="text-sm sm:text-base lg:text-lg text-[#666666] mb-6 sm:mb-8 leading-relaxed">
               Have questions about supporting TakaCycle? We&apos;d love to hear
               from you.
             </p>
 
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px' }}>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
               <a
                 href={`mailto:${email}`}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '14px 28px',
-                  backgroundColor: '#4CAF50',
-                  color: '#ffffff',
-                  fontWeight: 600,
-                  borderRadius: '50px',
-                  textDecoration: 'none',
-                }}
+                className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 bg-[#4CAF50] text-white font-semibold rounded-full hover:bg-[#43A047] transition-colors text-sm sm:text-base"
               >
-                <Mail style={{ height: '20px', width: '20px' }} />
+                <Mail className="h-4 w-4 sm:h-5 sm:w-5" />
                 Email Us
               </a>
               <a
                 href={whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '14px 28px',
-                  border: '2px solid #4CAF50',
-                  color: '#4CAF50',
-                  fontWeight: 600,
-                  borderRadius: '50px',
-                  textDecoration: 'none',
-                }}
+                className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 border-2 border-[#4CAF50] text-[#4CAF50] font-semibold rounded-full hover:bg-[#E8F5E9] transition-colors text-sm sm:text-base"
               >
-                <MessageCircle style={{ height: '20px', width: '20px' }} />
+                <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5" />
                 Join WhatsApp
               </a>
             </div>
@@ -252,25 +177,17 @@ export default async function SupportUsPage() {
       </section>
 
       {/* Final CTA */}
-      <section style={{ padding: '80px 0', backgroundColor: '#111111', color: '#ffffff' }}>
+      <section className="pt-10 pb-12 sm:pt-12 sm:pb-14 lg:pt-14 lg:pb-18 bg-[#111111] text-white">
         <Container>
-          <div style={{ textAlign: 'center' }}>
-            <h2 style={{ fontSize: '40px', fontWeight: 700, marginBottom: '24px' }}>
+          <div className="text-center">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-5">
               Every Action Counts
             </h2>
-            <p
-              style={{
-                fontSize: '20px',
-                color: '#cccccc',
-                maxWidth: '600px',
-                margin: '0 auto 32px',
-                lineHeight: 1.6,
-              }}
-            >
+            <p className="text-sm sm:text-base lg:text-lg text-[#cccccc] max-w-[600px] mx-auto mb-4 sm:mb-6 leading-relaxed">
               Whether you donate, volunteer, or simply spread the word,
               you&apos;re helping build a cleaner, greener Africa.
             </p>
-            <p style={{ color: '#8CD867', fontSize: '18px', fontWeight: 500 }}>
+            <p className="text-[#8CD867] text-sm sm:text-base lg:text-lg font-medium">
               Thank you for being part of the TakaCycle family.
             </p>
           </div>
