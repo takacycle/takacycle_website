@@ -28,13 +28,13 @@ export default async function OurProjectsPage() {
   return (
     <>
       {/* Hero Section */}
-      <section style={{ padding: '80px 0', backgroundColor: '#E8F5E9' }}>
+      <section className="py-12 sm:py-16 lg:py-20 bg-[#E8F5E9]">
         <Container>
-          <div style={{ maxWidth: '800px' }}>
-            <h1 style={{ fontSize: '48px', fontWeight: 700, color: '#111111', marginBottom: '24px' }}>
+          <div className="max-w-[800px]">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#111111] mb-5">
               Our Projects
             </h1>
-            <p style={{ fontSize: '18px', color: '#666666', lineHeight: 1.7 }}>
+            <p className="text-base sm:text-lg text-[#666666] leading-relaxed">
               Discover the initiatives we&apos;re working on to transform waste
               management in Ghana. From community programs to educational
               campaigns, every project brings us closer to a cleaner Africa.
@@ -44,9 +44,9 @@ export default async function OurProjectsPage() {
       </section>
 
       {/* Projects Grid */}
-      <section style={{ padding: '80px 0' }}>
+      <section className="py-12 sm:py-16 lg:py-20">
         <Container>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '32px' }}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             {projects.map((project: any) => {
               // Combine featured image with gallery images for slideshow
               const allImages = [
@@ -61,14 +61,9 @@ export default async function OurProjectsPage() {
               return (
               <div
                 key={project._id}
-                style={{
-                  backgroundColor: '#ffffff',
-                  borderRadius: '16px',
-                  border: '2px solid #f3f4f6',
-                  overflow: 'hidden',
-                }}
+                className="bg-white rounded-2xl border-2 border-gray-100 overflow-hidden"
               >
-                <div style={{ position: 'relative', height: '256px' }}>
+                <div className="relative h-48 sm:h-64">
                   {allImages.length > 1 ? (
                     <ImageSlideshow images={allImages} alt={project.title} interval={4000} />
                   ) : (
@@ -76,17 +71,13 @@ export default async function OurProjectsPage() {
                       src={singleImageUrl}
                       alt={project.title}
                       fill
-                      style={{ objectFit: 'cover' }}
+                      className="object-cover"
                     />
                   )}
-                  <div style={{ position: 'absolute', top: '16px', right: '16px', zIndex: 10 }}>
+                  <div className="absolute top-4 right-4 z-10">
                     <span
+                      className="px-3 py-1 rounded-full text-sm font-medium capitalize"
                       style={{
-                        padding: '4px 12px',
-                        borderRadius: '50px',
-                        fontSize: '14px',
-                        fontWeight: 500,
-                        textTransform: 'capitalize',
                         backgroundColor: statusColors[project.status]?.bg || '#f5f5f5',
                         color: statusColors[project.status]?.text || '#666666',
                       }}
@@ -95,44 +86,27 @@ export default async function OurProjectsPage() {
                     </span>
                   </div>
                 </div>
-                <div style={{ padding: '24px' }}>
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      color: '#888888',
-                      fontSize: '14px',
-                      marginBottom: '12px',
-                    }}
-                  >
-                    <MapPin style={{ height: '16px', width: '16px' }} />
+                <div className="p-5 sm:p-6">
+                  <div className="flex items-center gap-2 text-[#888888] text-sm mb-3">
+                    <MapPin className="h-4 w-4" />
                     {project.location}
                   </div>
-                  <h3 style={{ fontSize: '24px', fontWeight: 700, color: '#111111', marginBottom: '12px' }}>
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#111111] mb-3">
                     {project.title}
                   </h3>
-                  <p style={{ color: '#666666', marginBottom: '24px', lineHeight: 1.6 }}>
+                  <p className="text-[#666666] mb-5 leading-relaxed text-sm sm:text-base">
                     {project.description}
                   </p>
 
                   {/* Impact Metrics */}
                   {project.impactMetrics && (
-                    <div
-                      style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(3, 1fr)',
-                        gap: '16px',
-                        paddingTop: '16px',
-                        borderTop: '1px solid #f3f4f6',
-                      }}
-                    >
+                    <div className="grid grid-cols-3 gap-3 sm:gap-4 pt-4 border-t border-gray-100">
                       {project.impactMetrics?.map((metric: { label: string; value: string }) => (
-                        <div key={metric.label} style={{ textAlign: 'center' }}>
-                          <div style={{ fontSize: '20px', fontWeight: 700, color: '#4CAF50' }}>
+                        <div key={metric.label} className="text-center">
+                          <div className="text-lg sm:text-xl font-bold text-[#4CAF50]">
                             {metric.value}
                           </div>
-                          <div style={{ fontSize: '12px', color: '#888888' }}>
+                          <div className="text-xs text-[#888888]">
                             {metric.label}
                           </div>
                         </div>
@@ -148,53 +122,33 @@ export default async function OurProjectsPage() {
       </section>
 
       {/* Partner With Us */}
-      <section style={{ padding: '80px 0', backgroundColor: '#111111', color: '#ffffff' }}>
+      <section className="py-12 sm:py-16 lg:py-20 bg-[#111111] text-white">
         <Container>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '48px', alignItems: 'center' }}>
-            <div>
-              <h2 style={{ fontSize: '40px', fontWeight: 700, marginBottom: '24px' }}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="text-center lg:text-left">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-5">
                 Partner With Us
               </h2>
-              <p style={{ color: '#cccccc', fontSize: '18px', marginBottom: '24px', lineHeight: 1.7 }}>
+              <p className="text-[#cccccc] text-base sm:text-lg mb-5 leading-relaxed">
                 Are you an organization looking to make a difference? We welcome
                 partnerships with businesses, NGOs, government agencies, and
                 individuals who share our vision.
               </p>
-              <p style={{ color: '#cccccc', fontSize: '18px', lineHeight: 1.7 }}>
+              <p className="text-[#cccccc] text-base sm:text-lg leading-relaxed">
                 Together, we can scale our impact and create lasting change for
                 communities across Ghana and beyond.
               </p>
             </div>
-            <div style={{ display: 'flex', gap: '16px', justifyContent: 'flex-end' }}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-end">
               <a
                 href="mailto:takacycleinnovations@gmail.com"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  padding: '16px 32px',
-                  backgroundColor: '#4CAF50',
-                  color: '#ffffff',
-                  fontWeight: 600,
-                  borderRadius: '50px',
-                  textDecoration: 'none',
-                }}
+                className="inline-flex items-center justify-center px-8 py-4 bg-[#4CAF50] text-white font-semibold rounded-full hover:bg-[#43A047] transition-colors"
               >
                 Get in Touch
               </a>
               <a
                 href="/support-us"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  padding: '16px 32px',
-                  border: '2px solid #ffffff',
-                  color: '#ffffff',
-                  fontWeight: 600,
-                  borderRadius: '50px',
-                  textDecoration: 'none',
-                }}
+                className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-full hover:bg-white/10 transition-colors"
               >
                 Support Us
               </a>

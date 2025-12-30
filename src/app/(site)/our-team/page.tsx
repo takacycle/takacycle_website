@@ -22,49 +22,26 @@ export default async function OurTeamPage() {
   return (
     <>
       {/* Hero Banner */}
-      <section style={{ position: 'relative', height: '400px', overflow: 'hidden' }}>
+      <section className="relative h-64 sm:h-80 lg:h-[400px] overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=2000&auto=format&fit=crop"
           alt="Wind turbines at sunset"
           fill
-          style={{ objectFit: 'cover' }}
+          className="object-cover"
           priority
         />
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.2))',
-          }}
-        />
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <h1 style={{ fontSize: '56px', fontWeight: 700, color: '#ffffff', fontStyle: 'italic' }}>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-bold text-white italic">
             Our Team
           </h1>
         </div>
       </section>
 
       {/* Team Introduction */}
-      <section style={{ padding: '60px 0' }}>
+      <section className="py-10 sm:py-14 lg:py-16">
         <Container>
-          <p
-            style={{
-              fontSize: '20px',
-              color: '#444444',
-              maxWidth: '900px',
-              margin: '0 auto',
-              textAlign: 'center',
-              lineHeight: 1.7,
-            }}
-          >
+          <p className="text-base sm:text-lg lg:text-xl text-[#444444] max-w-[900px] mx-auto text-center leading-relaxed">
             We are a dynamic team of highly motivated individuals with a united
             mission of saving the planet and making the Earth a safe place for
             us and future generations. With diverse backgrounds, we forge
@@ -74,9 +51,9 @@ export default async function OurTeamPage() {
       </section>
 
       {/* Team Grid */}
-      <section style={{ paddingBottom: '80px' }}>
+      <section className="pb-12 sm:pb-16 lg:pb-20">
         <Container>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '32px' }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {teamMembers.map((member: any) => (
               <TeamCard key={member._id} member={member} />
             ))}
@@ -85,45 +62,26 @@ export default async function OurTeamPage() {
       </section>
 
       {/* Join Community CTA */}
-      <section style={{ padding: '80px 0' }}>
+      <section className="py-12 sm:py-16 lg:py-20">
         <Container>
           <JoinCommunity />
         </Container>
       </section>
 
       {/* Join Us CTA */}
-      <section style={{ padding: '80px 0', backgroundColor: '#4CAF50' }}>
+      <section className="py-12 sm:py-16 lg:py-20 bg-[#4CAF50]">
         <Container>
-          <div style={{ textAlign: 'center', color: '#ffffff' }}>
-            <h2 style={{ fontSize: '40px', fontWeight: 700, marginBottom: '16px' }}>
+          <div className="text-center text-white">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               Want to join our team?
             </h2>
-            <p
-              style={{
-                fontSize: '18px',
-                color: '#E8F5E9',
-                marginBottom: '32px',
-                maxWidth: '600px',
-                margin: '0 auto 32px',
-                lineHeight: 1.6,
-              }}
-            >
+            <p className="text-base sm:text-lg text-[#E8F5E9] mb-8 max-w-[600px] mx-auto leading-relaxed">
               We&apos;re always looking for passionate individuals who share our
               vision for a sustainable Africa. Get in touch with us!
             </p>
             <a
               href="mailto:takacycleinnovations@gmail.com"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                padding: '16px 32px',
-                backgroundColor: '#ffffff',
-                color: '#4CAF50',
-                fontWeight: 600,
-                borderRadius: '50px',
-                textDecoration: 'none',
-                fontSize: '16px',
-              }}
+              className="inline-flex items-center px-8 py-4 bg-white text-[#4CAF50] font-semibold rounded-full hover:bg-gray-100 transition-colors"
             >
               Contact Us
             </a>

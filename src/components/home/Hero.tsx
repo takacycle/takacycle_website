@@ -22,45 +22,28 @@ export function Hero({ siteSettings }: HeroProps) {
     : 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1000&auto=format&fit=crop';
 
   return (
-    <section style={{ padding: '80px 0 100px' }}>
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 40px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+    <section className="py-12 sm:py-16 lg:py-20">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
           {/* Text Content */}
-          <div>
-            <h1 style={{ fontSize: '56px', fontWeight: 700, lineHeight: 1.1, letterSpacing: '-0.02em' }}>
-              <span style={{ color: '#111111' }}>{tagline}</span>
+          <div className="order-2 lg:order-1 text-center lg:text-left">
+            <h1 className="text-3xl sm:text-4xl lg:text-[56px] font-bold leading-tight tracking-tight">
+              <span className="text-[#111111]">{tagline}</span>
               {taglineAccent && (
                 <>
                   <br />
-                  <span style={{ color: '#4CAF50' }}>{taglineAccent}</span>
+                  <span className="text-[#4CAF50]">{taglineAccent}</span>
                 </>
               )}
             </h1>
-            <p style={{
-              marginTop: '32px',
-              fontSize: '18px',
-              color: '#666666',
-              maxWidth: '500px',
-              lineHeight: 1.7
-            }}>
+            <p className="mt-6 lg:mt-8 text-base sm:text-lg text-[#666666] max-w-[500px] mx-auto lg:mx-0 leading-relaxed">
               We are redefining waste management across the continent, closing
               the loop on waste and turning challenges into opportunities
             </p>
-            <div style={{ marginTop: '40px' }}>
+            <div className="mt-8 lg:mt-10">
               <Link
                 href="/our-story"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  padding: '18px 36px',
-                  fontSize: '17px',
-                  fontWeight: 600,
-                  color: '#ffffff',
-                  backgroundColor: '#4CAF50',
-                  borderRadius: '50px',
-                  textDecoration: 'none',
-                  boxShadow: '0 8px 24px rgba(76, 175, 80, 0.35)',
-                }}
+                className="inline-flex items-center px-8 py-4 text-base sm:text-lg font-semibold text-white bg-[#4CAF50] rounded-full shadow-[0_8px_24px_rgba(76,175,80,0.35)] hover:bg-[#43A047] transition-colors"
               >
                 Learn more
               </Link>
@@ -68,19 +51,13 @@ export function Hero({ siteSettings }: HeroProps) {
           </div>
 
           {/* Hero Image */}
-          <div style={{ position: 'relative' }}>
-            <div style={{
-              position: 'relative',
-              aspectRatio: '4/5',
-              borderRadius: '24px',
-              overflow: 'hidden',
-              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
-            }}>
+          <div className="order-1 lg:order-2 relative">
+            <div className="relative aspect-[4/5] max-w-[400px] mx-auto lg:max-w-none rounded-3xl overflow-hidden shadow-2xl">
               <Image
                 src={heroImageUrl}
                 alt="African woman embracing sustainability"
                 fill
-                style={{ objectFit: 'cover' }}
+                className="object-cover"
                 priority
               />
             </div>

@@ -4,51 +4,40 @@ import { coreValues } from '@/data/services';
 
 export function CoreValues() {
   return (
-    <section style={{ padding: '100px 0', position: 'relative', overflow: 'hidden' }}>
+    <section className="py-12 sm:py-16 lg:py-24 relative overflow-hidden">
       {/* Background Image */}
       <div
+        className="absolute inset-0 bg-cover bg-center"
         style={{
-          position: 'absolute',
-          inset: 0,
           backgroundImage: 'url(https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?q=80&w=2000&auto=format&fit=crop)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
         }}
       >
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'linear-gradient(to right, rgba(0,0,0,0.85), rgba(0,0,0,0.75), rgba(0,0,0,0.65))'
-        }} />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/75 to-black/65" />
       </div>
 
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 40px', position: 'relative', zIndex: 10 }}>
-        <h2 style={{ fontSize: '48px', fontWeight: 700, color: '#ffffff', marginBottom: '60px' }}>
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-10 sm:mb-14 lg:mb-16">
           Our Core Values
         </h2>
 
-        {/* Values Grid - 3 columns */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '50px 60px',
-        }}>
+        {/* Values Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-x-14 lg:gap-y-12">
           {coreValues.map((value) => (
             <div key={value.title}>
-              <h3 style={{ fontSize: '24px', fontWeight: 700, color: '#ffffff', marginBottom: '12px' }}>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
                 {value.title}
               </h3>
-              <p style={{ fontSize: '16px', color: '#cccccc', lineHeight: 1.7, margin: 0 }}>
+              <p className="text-sm sm:text-base text-[#cccccc] leading-relaxed">
                 {value.description}
               </p>
             </div>
           ))}
 
           {/* SPICED tagline */}
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <p style={{ fontSize: '26px', color: '#ffffff', lineHeight: 1.4, margin: 0 }}>
+          <div className="flex items-center sm:col-span-2 lg:col-span-1">
+            <p className="text-xl sm:text-2xl text-white leading-snug">
               We are{' '}
-              <span style={{ color: '#8CD867', fontWeight: 700 }}>SPICED</span> to make
+              <span className="text-[#8CD867] font-bold">SPICED</span> to make
               the world a better place
             </p>
           </div>

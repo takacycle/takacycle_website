@@ -28,55 +28,32 @@ export function Footer({ siteSettings }: FooterProps) {
   const socialLinks = siteSettings?.socialLinks || {};
 
   return (
-    <footer style={{ backgroundColor: '#2D5016' }}>
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 40px' }}>
+    <footer className="bg-[#2D5016]">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
         {/* Main Footer Content */}
-        <div style={{ padding: '60px 0 40px' }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1.5fr 1fr 1fr 1fr 1.5fr',
-            gap: '40px',
-          }}>
+        <div className="py-10 lg:py-14">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10">
             {/* Brand Column */}
-            <div>
-              <h2 style={{
-                fontSize: '28px',
-                fontWeight: 700,
-                fontStyle: 'italic',
-                color: '#ffffff',
-                marginBottom: '0',
-                lineHeight: 1.2,
-              }}>
+            <div className="sm:col-span-2 lg:col-span-1">
+              <h2 className="text-2xl lg:text-[28px] font-bold italic text-white leading-tight">
                 TakaCycle
               </h2>
-              <h2 style={{
-                fontSize: '28px',
-                fontWeight: 700,
-                fontStyle: 'italic',
-                color: '#ffffff',
-                marginBottom: '0',
-                lineHeight: 1.2,
-              }}>
+              <h2 className="text-2xl lg:text-[28px] font-bold italic text-white leading-tight">
                 Innovations
               </h2>
             </div>
 
             {/* Explore Column */}
             <div>
-              <h3 style={{
-                fontSize: '16px',
-                fontWeight: 600,
-                color: '#ffffff',
-                marginBottom: '20px'
-              }}>
+              <h3 className="text-base font-semibold text-white mb-4">
                 Explore
               </h3>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+              <ul className="space-y-3">
                 {footerNavigation.explore.slice(1).map((item) => (
-                  <li key={item.href} style={{ marginBottom: '12px' }}>
+                  <li key={item.href}>
                     <Link
                       href={item.href}
-                      style={{ color: '#C8E6C9', fontSize: '15px', textDecoration: 'none' }}
+                      className="text-[#C8E6C9] text-[15px] hover:text-white transition-colors"
                     >
                       {item.label}
                     </Link>
@@ -87,35 +64,30 @@ export function Footer({ siteSettings }: FooterProps) {
 
             {/* Legal Column */}
             <div>
-              <h3 style={{
-                fontSize: '16px',
-                fontWeight: 600,
-                color: '#ffffff',
-                marginBottom: '20px'
-              }}>
+              <h3 className="text-base font-semibold text-white mb-4">
                 Legal
               </h3>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                <li style={{ marginBottom: '12px' }}>
+              <ul className="space-y-3">
+                <li>
                   <Link
                     href="/privacy-policy"
-                    style={{ color: '#C8E6C9', fontSize: '15px', textDecoration: 'none' }}
+                    className="text-[#C8E6C9] text-[15px] hover:text-white transition-colors"
                   >
                     Privacy Policy
                   </Link>
                 </li>
-                <li style={{ marginBottom: '12px' }}>
+                <li>
                   <Link
                     href="/terms-of-service"
-                    style={{ color: '#C8E6C9', fontSize: '15px', textDecoration: 'none' }}
+                    className="text-[#C8E6C9] text-[15px] hover:text-white transition-colors"
                   >
                     Terms of Services
                   </Link>
                 </li>
-                <li style={{ marginBottom: '12px' }}>
+                <li>
                   <Link
                     href="/documentation"
-                    style={{ color: '#C8E6C9', fontSize: '15px', textDecoration: 'none' }}
+                    className="text-[#C8E6C9] text-[15px] hover:text-white transition-colors"
                   >
                     Documentations
                   </Link>
@@ -125,51 +97,46 @@ export function Footer({ siteSettings }: FooterProps) {
 
             {/* Social Media Column */}
             <div>
-              <h3 style={{
-                fontSize: '16px',
-                fontWeight: 600,
-                color: '#ffffff',
-                marginBottom: '20px'
-              }}>
+              <h3 className="text-base font-semibold text-white mb-4">
                 Social Media
               </h3>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                <li style={{ marginBottom: '12px' }}>
+              <ul className="space-y-3">
+                <li>
                   <a
                     href={socialLinks.instagram || '#'}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ color: '#C8E6C9', fontSize: '15px', textDecoration: 'none' }}
+                    className="text-[#C8E6C9] text-[15px] hover:text-white transition-colors"
                   >
                     Instagram
                   </a>
                 </li>
-                <li style={{ marginBottom: '12px' }}>
+                <li>
                   <a
                     href={socialLinks.linkedin || '#'}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ color: '#C8E6C9', fontSize: '15px', textDecoration: 'none' }}
+                    className="text-[#C8E6C9] text-[15px] hover:text-white transition-colors"
                   >
                     LinkedIn
                   </a>
                 </li>
-                <li style={{ marginBottom: '12px' }}>
+                <li>
                   <a
                     href={socialLinks.twitter || '#'}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ color: '#C8E6C9', fontSize: '15px', textDecoration: 'none' }}
+                    className="text-[#C8E6C9] text-[15px] hover:text-white transition-colors"
                   >
                     X (Formerly Twitter)
                   </a>
                 </li>
-                <li style={{ marginBottom: '12px' }}>
+                <li>
                   <a
                     href={socialLinks.facebook || '#'}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ color: '#C8E6C9', fontSize: '15px', textDecoration: 'none' }}
+                    className="text-[#C8E6C9] text-[15px] hover:text-white transition-colors"
                   >
                     Facebook
                   </a>
@@ -178,31 +145,26 @@ export function Footer({ siteSettings }: FooterProps) {
             </div>
 
             {/* About & Contact Column */}
-            <div>
-              <p style={{
-                color: '#C8E6C9',
-                fontSize: '14px',
-                lineHeight: 1.7,
-                marginBottom: '24px'
-              }}>
+            <div className="sm:col-span-2 lg:col-span-1">
+              <p className="text-[#C8E6C9] text-sm leading-relaxed mb-5">
                 TakaCycle Innovations is a nonprofit, tax-exempt charitable organization
                 (Registration number CG063420823) under the Companies Act, 2019 (Act 992), Ghana.
                 Donations are tax-deductible as allowed by law.
               </p>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
-                <Mail style={{ height: '18px', width: '18px', color: '#C8E6C9' }} />
+              <div className="flex items-center gap-2.5 mb-3">
+                <Mail className="h-[18px] w-[18px] text-[#C8E6C9] flex-shrink-0" />
                 <a
                   href={`mailto:${email}`}
-                  style={{ color: '#C8E6C9', fontSize: '14px', textDecoration: 'underline' }}
+                  className="text-[#C8E6C9] text-sm underline hover:text-white transition-colors break-all"
                 >
                   {email}
                 </a>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <Phone style={{ height: '18px', width: '18px', color: '#C8E6C9' }} />
-                <span style={{ color: '#C8E6C9', fontSize: '14px' }}>
+              <div className="flex items-start gap-2.5">
+                <Phone className="h-[18px] w-[18px] text-[#C8E6C9] flex-shrink-0 mt-0.5" />
+                <span className="text-[#C8E6C9] text-sm">
                   +233 24 857 9906 / +233 55 085 0691
                 </span>
               </div>
@@ -211,8 +173,8 @@ export function Footer({ siteSettings }: FooterProps) {
         </div>
 
         {/* Bottom Bar */}
-        <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)', padding: '20px 0' }}>
-          <p style={{ textAlign: 'center', color: '#8CD867', fontSize: '14px', margin: 0 }}>
+        <div className="border-t border-white/15 py-5">
+          <p className="text-center text-[#8CD867] text-sm">
             &copy; {currentYear} TakaCycle Innovations. All rights reserved.
           </p>
         </div>
