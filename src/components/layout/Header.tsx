@@ -36,7 +36,8 @@ export function Header({ siteName = 'TakaCycle Innovations' }: HeaderProps) {
             <div style={{
               display: 'flex',
               alignItems: 'center',
-              backgroundColor: '#f5f5f5',
+              backgroundColor: '#ffffff',
+              border: '2px solid #111111',
               borderRadius: '50px',
               padding: '8px 16px',
               gap: '4px'
