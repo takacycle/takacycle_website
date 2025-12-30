@@ -30,7 +30,7 @@ export default async function BlogPage() {
   return (
     <>
       {/* Hero Banner */}
-      <section className="relative h-64 sm:h-80 lg:h-[400px] overflow-hidden">
+      <section className="relative h-48 sm:h-64 lg:h-[350px] overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2000&auto=format&fit=crop"
           alt="Green hills landscape"
@@ -40,21 +40,21 @@ export default async function BlogPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-          <p className="text-[#8CD867] font-medium mb-2">TakaBlog</p>
-          <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white max-w-[700px] leading-tight">
+          <p className="text-[#8CD867] font-medium text-sm sm:text-base mb-2">TakaBlog</p>
+          <h1 className="text-xl sm:text-2xl lg:text-5xl font-bold text-white max-w-[700px] leading-tight">
             Learn more about climate, the environment, and sustainability
           </h1>
         </div>
       </section>
 
       {/* Category Filter */}
-      <section className="py-6 sm:py-8 border-b border-gray-200">
+      <section className="py-4 sm:py-6 border-b border-gray-200">
         <Container>
           <div className="flex flex-wrap gap-2">
             {blogCategories.map((category) => (
               <button
                 key={category.id}
-                className={`px-4 sm:px-5 py-2.5 rounded-full text-sm font-medium border-none cursor-pointer transition-colors ${
+                className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium border-none cursor-pointer transition-colors ${
                   category.id === 'all'
                     ? 'bg-[#111111] text-white'
                     : 'bg-[#f5f5f5] text-[#666666] hover:bg-gray-200'
@@ -68,9 +68,9 @@ export default async function BlogPage() {
       </section>
 
       {/* Blog Grid */}
-      <section className="py-10 sm:py-14 lg:py-16">
+      <section className="pt-8 pb-10 sm:pt-10 sm:pb-12 lg:pt-14 lg:pb-16">
         <Container>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
             {blogPosts.map((post: any) => (
               <BlogCard key={post._id} post={post} />
             ))}
@@ -79,7 +79,7 @@ export default async function BlogPage() {
       </section>
 
       {/* Join Community CTA */}
-      <section className="py-12 sm:py-16 lg:py-20">
+      <section className="pt-8 pb-14 sm:pt-10 sm:pb-16 lg:pt-12 lg:pb-20">
         <Container>
           <JoinCommunity />
         </Container>

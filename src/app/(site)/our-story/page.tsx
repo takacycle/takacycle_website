@@ -54,31 +54,31 @@ export default async function OurStoryPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="py-12 sm:py-16 lg:py-20">
+      <section className="pt-8 pb-12 sm:pt-12 sm:pb-16 lg:pt-14 lg:pb-20">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="order-2 lg:order-1">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#111111] mb-5">
+              <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-[#111111] mb-4 sm:mb-5">
                 The TakaCycle Story
               </h1>
-              <p className="text-base sm:text-lg text-[#666666] mb-5 leading-relaxed">
+              <p className="text-sm sm:text-base lg:text-lg text-[#666666] mb-4 sm:mb-5 leading-relaxed">
                 TakaCycle Innovations was founded as a solution to the plastic
                 menace of Ghana and Africa at large. Inspired by the United
                 Nation&apos;s Sustainable Development Goals, we saw an opportunity
                 to help curb this problem while making revenue in the process.
               </p>
-              <p className="text-base sm:text-lg text-[#666666] leading-relaxed">
+              <p className="text-sm sm:text-base lg:text-lg text-[#666666] leading-relaxed">
                 Our name &quot;TakaCycle&quot; combines &quot;Taka&quot; (Swahili for waste/trash)
                 with &quot;Cycle&quot; - representing our mission to transform waste
                 into valuable resources through the circular economy.
               </p>
 
-              {/* SDG Goals - Using actual images */}
-              <div className="mt-6 lg:mt-8 grid grid-cols-3 sm:grid-cols-6 gap-3">
+              {/* SDG Goals */}
+              <div className="mt-6 lg:mt-8 grid grid-cols-3 sm:grid-cols-6 gap-2 sm:gap-3">
                 {sdgGoals.map((goal) => (
                   <div
                     key={goal.number}
-                    className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden relative"
+                    className="w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-lg overflow-hidden relative"
                   >
                     <Image
                       src={goal.image}
@@ -92,7 +92,7 @@ export default async function OurStoryPage() {
             </div>
 
             <div className="order-1 lg:order-2 relative">
-              <div className="relative aspect-[4/5] max-w-[350px] mx-auto lg:max-w-none rounded-3xl overflow-hidden">
+              <div className="relative aspect-[4/5] max-w-[280px] sm:max-w-[350px] mx-auto lg:max-w-none rounded-3xl overflow-hidden">
                 <Image
                   src={storyImageUrl}
                   alt="Recycling in action"
@@ -105,20 +105,20 @@ export default async function OurStoryPage() {
         </Container>
       </section>
 
-      {/* Mission Section - Redesigned with image */}
-      <section className="py-12 sm:py-16 lg:py-20">
+      {/* Mission Section */}
+      <section className="pt-10 pb-12 sm:pt-14 sm:pb-16 lg:pt-16 lg:pb-20">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
             <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#111111] mb-5">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#111111] mb-4 sm:mb-5 lg:mb-6">
                 Our Mission
               </h2>
-              <p className="text-base sm:text-lg text-[#666666] leading-relaxed">
+              <p className="text-sm sm:text-base lg:text-lg text-[#666666] leading-relaxed">
                 {missionStatement}
               </p>
             </div>
             <div className="relative">
-              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden">
+              <div className="relative aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden">
                 <Image
                   src={missionImageUrl}
                   alt="Our Mission - Woman smiling with sustainable products"
@@ -132,11 +132,11 @@ export default async function OurStoryPage() {
       </section>
 
       {/* Vision Section */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-[#F5F5F5]">
+      <section className="pt-10 pb-12 sm:pt-14 sm:pb-16 lg:pt-16 lg:pb-20 bg-[#F5F5F5]">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="order-2 lg:order-1 relative">
-              <div className="relative aspect-video rounded-3xl overflow-hidden">
+              <div className="relative aspect-video rounded-2xl sm:rounded-3xl overflow-hidden">
                 <Image
                   src={visionImageUrl}
                   alt="Sustainable future"
@@ -147,10 +147,10 @@ export default async function OurStoryPage() {
             </div>
 
             <div className="order-1 lg:order-2">
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#111111] mb-5">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#111111] mb-4 sm:mb-5 lg:mb-6">
                 Our Vision
               </h2>
-              <p className="text-base sm:text-lg text-[#666666] leading-relaxed">
+              <p className="text-sm sm:text-base lg:text-lg text-[#666666] leading-relaxed">
                 {visionStatement}
               </p>
             </div>
@@ -159,18 +159,18 @@ export default async function OurStoryPage() {
       </section>
 
       {/* Impact Section */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-[#111111] text-white">
+      <section className="pt-12 pb-14 sm:pt-14 sm:pb-16 lg:pt-16 lg:pb-20 bg-[#111111] text-white">
         <Container>
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10 lg:mb-12">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-8 sm:mb-10 lg:mb-12">
             Our Impact
           </h2>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {impactStats.map((stat: { value: string; label: string; _key?: string }) => (
               <div key={stat._key || stat.label} className="text-center">
-                <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#8CD867] mb-2">
+                <div className="text-2xl sm:text-3xl lg:text-5xl font-bold text-[#8CD867] mb-1 sm:mb-2">
                   {stat.value}
                 </div>
-                <div className="text-[#999999] text-sm sm:text-base">{stat.label}</div>
+                <div className="text-[#999999] text-xs sm:text-sm lg:text-base">{stat.label}</div>
               </div>
             ))}
           </div>
