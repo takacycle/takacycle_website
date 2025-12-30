@@ -11,8 +11,11 @@ export const metadata: Metadata = {
 };
 
 const sdgGoals = [
+  {number: 3, image: '/images/sdg/sdg3.png', alt: 'SDG 3 - Good Health and Well-Being'},
+  {number: 6, image: '/images/sdg/sdg6.png', alt: 'SDG 6 - Clean Water and Sanitation'},
   { number: 11, image: '/images/sdg/sdg11.png', alt: 'SDG 11 - Sustainable Cities and Communities' },
   { number: 13, image: '/images/sdg/sdg13.png', alt: 'SDG 13 - Climate Action' },
+  {number: 14, image: '/images/sdg/sdg14.png', alt: 'SDG 14 - Life Below Water'},
   { number: 15, image: '/images/sdg/sdg15.png', alt: 'SDG 15 - Life on Land' },
 ];
 

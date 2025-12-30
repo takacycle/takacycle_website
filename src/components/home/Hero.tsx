@@ -84,19 +84,6 @@ export function Hero({ siteSettings }: HeroProps) {
                 priority
               />
             </div>
-            {/* Decorative element */}
-            <div
-              style={{
-                position: 'absolute',
-                zIndex: -1,
-                top: '32px',
-                right: '-32px',
-                width: '100%',
-                height: '100%',
-                backgroundColor: '#E8F5E9',
-                borderRadius: '24px'
-              }}
-            />
           </div>
         </div>
       </div>
