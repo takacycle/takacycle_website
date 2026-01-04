@@ -30,7 +30,7 @@ export function JoinCommunity() {
         </div>
         <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-[140px] lg:h-[140px] rounded-3xl overflow-hidden relative flex-shrink-0 order-first sm:order-last">
           <Image
-            src="/images/icons/whatsapp.webp"
+            src="/assets/whatsapp.svg"
             alt="WhatsApp"
             fill
             className="object-contain"
