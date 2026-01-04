@@ -35,9 +35,9 @@ export default async function OurProjectsPage() {
               Our Projects
             </h1>
             <p className="text-sm sm:text-base lg:text-lg text-[#666666] leading-relaxed">
-              Discover the initiatives we&apos;re working on to transform waste
-              management in Ghana. From community programs to educational
-              campaigns, every project brings us closer to a cleaner Africa.
+              At TakaCycle, our mission transcends mere environmental advocacy; we are on the ground, making tangible impacts through diverse projects aimed at promoting sustainability and combating climate change. 
+              Each project is a step forward in our journey towards a greener, cleaner planet.
+              Explore the innovative and transformative projects we&apos;re working on:
             </p>
           </div>
         </Container>
@@ -121,7 +121,7 @@ export default async function OurProjectsPage() {
       </section>
 
       {/* Partner With Us */}
-      <section className="pt-10 pb-12 sm:pt-12 sm:pb-14 lg:pt-16 lg:pb-20 bg-[#111111] text-white">
+      <section className="pt-10 pb-12 sm:pt-12 sm:pb-14 lg:pt-16 lg:pb-20 bg-brandDarkGreen text-white">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
             <div className="text-center lg:text-left">

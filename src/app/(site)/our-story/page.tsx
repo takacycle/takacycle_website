@@ -73,12 +73,12 @@ export default async function OurStoryPage() {
                 into valuable resources through the circular economy.
               </p>
 
-              {/* SDG Goals */}
-              <div className="mt-6 lg:mt-8 grid grid-cols-3 sm:grid-cols-6 gap-2 sm:gap-3">
+              {/* SDG Goals - 2 rows of 3 */}
+              <div className="mt-6 lg:mt-8 grid grid-cols-3 gap-3 sm:gap-4 max-w-md">
                 {sdgGoals.map((goal) => (
                   <div
                     key={goal.number}
-                    className="w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-lg overflow-hidden relative"
+                    className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-lg overflow-hidden relative"
                   >
                     <Image
                       src={goal.image}
@@ -159,7 +159,7 @@ export default async function OurStoryPage() {
       </section>
 
       {/* Impact Section */}
-      <section className="pt-12 pb-14 sm:pt-14 sm:pb-16 lg:pt-16 lg:pb-20 bg-[#111111] text-white">
+      <section className="pt-12 pb-14 sm:pt-14 sm:pb-16 lg:pt-16 lg:pb-20 bg-brandDarkGreen text-white">
         <Container>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-8 sm:mb-10 lg:mb-12">
             Our Impact
