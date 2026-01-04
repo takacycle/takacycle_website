@@ -1,45 +1,82 @@
 'use client';
 
-import { coreValues } from '@/data/services';
+import Image from 'next/image';
+
+const coreValues = [
+  {
+    title: 'Sustainability',
+    subtitle:
+      'We prioritize the well-being of people and the planet, striving for a positive environmental and social impact.',
+  },
+  {
+    title: 'Passion',
+    subtitle:
+      'We create a sense of purpose and motivation as a community, energized by our work and values.',
+  },
+  {
+    title: 'Innovation',
+    subtitle:
+      'We foster a culture of creativity, celebrating new ideas and staying curious to explore new possibilities.',
+  },
+  {
+    title: 'Commitment',
+    subtitle:
+      'We are dedicated to our mission, committed to changing the narrative about plastic waste management.',
+  },
+  {
+    title: 'Excellence',
+    subtitle:
+      'We strive for the highest quality of work, embracing quality over quantity and leadership by example',
+  },
+  {
+    title: 'We are SPICED to make the world a better place',
+  },
+];
 
 export function CoreValues() {
   return (
-    <section className="pt-12 pb-14 sm:pt-16 sm:pb-18 lg:pt-20 lg:pb-24 relative overflow-hidden">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?q=80&w=2000&auto=format&fit=crop)',
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/75 to-black/65" />
-      </div>
-
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
-        <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-8 sm:mb-10 lg:mb-14">
-          Our Core Values
-        </h2>
-
-        {/* Values Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-x-14 lg:gap-y-10">
-          {coreValues.map((value) => (
-            <div key={value.title}>
-              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 sm:mb-3">
-                {value.title}
-              </h3>
-              <p className="text-sm sm:text-base text-[#cccccc] leading-relaxed">
-                {value.description}
-              </p>
+    <section className="bg-white mt-4 pb-7">
+      <div className="px-4">
+        <div className="flex flex-col sm:flex-row justify-between items-center mb-6">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center sm:text-left sm:mb-0">
+            Our Core Values
+          </h2>
+        </div>
+        <div className="mt-10 mx-auto h-[800px] md:h-[560px] relative">
+          <Image
+            src="/assets/core-bg.svg"
+            alt="Recycling Carousel"
+            fill
+            className="object-cover rounded-lg"
+          />
+          <div className="absolute bottom-0 left-0 right-0 p-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {coreValues.map((value, index) => (
+                <div
+                  key={index}
+                  className={`w-72 bg-opacity-90 p-4 rounded-lg ${
+                    index === 5 ? 'hidden md:block' : ''
+                  }`}
+                >
+                  {index === 5 ? (
+                    <h3 className="font-alton font-bold mb-2 text-center md:text-left text-xl text-white">
+                      We are{' '}
+                      <span className="text-brandFadedGreen">SPICED</span> to
+                      make the world a better place
+                    </h3>
+                  ) : (
+                    <h3 className="text-white font-alton font-bold mb-2 text-center md:text-left text-xl">
+                      {value.title}
+                    </h3>
+                  )}
+                  {value.subtitle && (
+                    <p className="text-white text-sm text-center md:text-left">
+                      {value.subtitle}
+                    </p>
+                  )}
+                </div>
+              ))}
             </div>
-          ))}
-
-          {/* SPICED tagline */}
-          <div className="flex items-center sm:col-span-2 lg:col-span-1 pt-2">
-            <p className="text-lg sm:text-xl lg:text-2xl text-white leading-snug">
-              We are{' '}
-              <span className="text-[#8CD867] font-bold">SPICED</span> to make
-              the world a better place
-            </p>
           </div>
         </div>
       </div>

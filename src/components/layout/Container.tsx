@@ -5,21 +5,15 @@ interface ContainerProps {
   size?: 'default' | 'small' | 'large';
 }
 
-export function Container({
-  children,
-  size = 'default',
-}: ContainerProps) {
+export function Container({ children, size = 'default' }: ContainerProps) {
   const maxWidths = {
-    default: '1280px',
-    small: '1024px',
-    large: '1536px',
+    default: 'max-w-screen-xl',
+    small: 'max-w-screen-lg',
+    large: 'max-w-screen-2xl',
   };
 
   return (
-    <div
-      className="mx-auto w-full px-4 sm:px-6 lg:px-10"
-      style={{ maxWidth: maxWidths[size] }}
-    >
+    <div className={`${maxWidths[size]} mx-auto px-4 sm:px-6`}>
       {children}
     </div>
   );
