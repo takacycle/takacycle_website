@@ -28,15 +28,24 @@ export default async function OurProjectsPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-10 pb-10 sm:pt-12 sm:pb-12 lg:pt-16 lg:pb-16 bg-[#E8F5E9]">
+      <section className="pt-10 pb-10 sm:pt-12 sm:pb-12 lg:pt-16 lg:pb-16">
         <Container>
-          <div className="max-w-[800px]">
-            <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-[#111111] mb-4 sm:mb-5">
-              Our Projects
-            </h1>
-            <p className="text-sm sm:text-base lg:text-lg text-[#666666] leading-relaxed">
-              At TakaCycle, our mission transcends mere environmental advocacy; we are on the ground, making tangible impacts through diverse projects aimed at promoting sustainability and combating climate change. 
-              Each project is a step forward in our journey towards a greener, cleaner planet.
+          <div className="relative">
+            <Image
+              src="/assets/projectheader.svg"
+              alt="Our Projects"
+              width={1296}
+              height={314}
+              className="w-full"
+            />
+            <p className="mt-4 text-sm sm:text-base lg:text-lg text-[#666666] leading-relaxed">
+              At TakaCycle, our mission transcends mere environmental advocacy; we
+              are on the ground, making tangible impacts through diverse projects
+              aimed at promoting sustainability and combating climate change. Each
+              project is a step forward in our journey towards a greener, cleaner
+              planet.
+            </p>
+            <p className="mt-6 text-sm sm:text-base lg:text-lg text-[#666666] leading-relaxed">
               Explore the innovative and transformative projects we&apos;re working on:
             </p>
           </div>
